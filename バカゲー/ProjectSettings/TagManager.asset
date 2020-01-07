@@ -7,6 +7,12 @@ TagManager:
   - map
   - foul
   - Field
+  - Ball
+  - Missile
+  - Bat
+  - LuxuryField
+  - PoorField
+  - OutAria
   layers:
   - Default
   - TransparentFX

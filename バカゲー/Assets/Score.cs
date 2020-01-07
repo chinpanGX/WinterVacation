@@ -5,42 +5,31 @@ using UnityEngine.UI;
 
 /*==============================================================
  
-    mapcollisionにつけるスクリプト
+    Scoreにつけるスクリプト
     ミサイルトの判定
      
 ================================================================*/
 
 public class Score : MonoBehaviour
 {
-    public int hp;  //  マップのHP
-    public int MaxHp = 1000;
-    public Slider slider;
+    int score;
+    public Text scoreText; //スコア
 
     // Start is called before the first frame update
     void Start()
     {
-        hp = MaxHp;
-        slider.value = 1;
+        score = 0;
+        scoreText.text = "0";
     }
 
     // Update is called once per frame
     void Update()
     {
-        hp -= 1; //攻撃で体力が減少
-        slider.value = (float)hp / MaxHp; ;
+        scoreText.text = score.ToString();
     }
 
-    void OnTriggerEnter(Collider hit)
+   public void GetScore(int score)
     {
-        if (hit.CompareTag(" ミサイル "))
-        {
-            hp -= 1; //攻撃で体力が減少
-            slider.value = (float)hp / MaxHp; ;
-            Destroy(hit.gameObject);
-            if(hp == 0)
-            {
-                //ゲームクリア
-            }
-        }
+        this.score += score;
     }
 }
